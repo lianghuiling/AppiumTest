@@ -370,7 +370,7 @@ class TestMyWork(unittest.TestCase):
         # item_className = 'android.widget.LinearLayout'
         item_className = 'com.xes.drawpanel:id/rll'
         # a = Driver().get_driver().find_element_by_id(list_panel_id).find_elements_by_class_name(item_className)
-        # print len(a)
+        
         # b = a[0].find_elements_by_class_name('android.widget.TextView')
         # for tst in b:
         #     print tst.text.encode('utf-8')

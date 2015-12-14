@@ -63,17 +63,10 @@ class RES():
     @classmethod
     def get_all_student_no(self):
         list_panel_id = 'com.xes.drawpanel:id/student_ListView'
-        # item_className = 'android.widget.LinearLayout'
-        item_className = 'com.xes.drawpanel:id/network_image_view'
-        # a = Driver().get_driver().find_element_by_id(list_panel_id).find_elements_by_class_name(item_className)
-        # print len(a)
-        # b = a[0].find_elements_by_class_name('android.widget.TextView')
-        # for tst in b:
-        #     print tst.text.encode('utf-8')
-        stu_info = E().element_scroll(Driver().get_driver(), list_panel_id, item_className)
-        # stu_info = Element_scroll().element_scroll(Driver().get_driver(), list_panel_id, item_className)
+        item_className = 'android.widget.LinearLayout'
+        stu_info = E().element_scroll_by_clickable(Driver().get_driver(), list_panel_id, item_className)
         stu_no = len(stu_info)
-        # stu_no = len(E.element_scroll(Driver().get_driver(), list_panel_id, item_className))
+
         return stu_no
 
 
@@ -87,9 +80,9 @@ class TestMyClass(unittest.TestCase):
     # TearDown测试环境
     def tearDown(self):
         # 重置driver，清空driver累积状态，供同时运行多条case使用
-        # Driver().reset_driver()
+        Driver().reset_driver()
         # 关闭当前session，仅供单条case测试使用，多条的时候注释掉此行
-        Driver().close_driver()
+        # Driver().close_driver()
 
     # 初始化方法,登录账户
     def __init_Login_activity(self):

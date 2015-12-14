@@ -375,7 +375,7 @@ class TestMyWork(unittest.TestCase):
         # for tst in b:
         #     print tst.text.encode('utf-8')
         # stu_info = E.element_scroll(Driver().get_driver(), list_panel_id, item_className)
-        stu_info = E.element_scroll_to_find_button(Driver().get_driver(), list_panel_id, item_className)
+        stu_info = E.element_scroll_by_id(Driver().get_driver(), list_panel_id, item_className)
         stu_no = len(stu_info)
         # stu_no = len(E.element_scroll(Driver().get_driver(), list_panel_id, item_className))
         print '作业列表数量：' + str(stu_no)
@@ -385,7 +385,25 @@ class TestMyWork(unittest.TestCase):
         list_panel_id = 'com.xes.drawpanel:id/live_ListView'
         item_className = 'com.xes.drawpanel:id/rll'
         a = Driver().get_driver().find_element_by_id(list_panel_id).find_elements_by_id(item_className)
-        print FRES.find_all_button(a[0])
+        # print FRES.find_all_button(a[3])
+        all_text3 = a[3].find_elements_by_class_name('android.widget.TextView')
+        # print len(all_text3)
+
+        Driver().get_driver().swipe(435,1225,435,514)
+        a = Driver().get_driver().find_elements_by_id(item_className)
+        # print "page source = \r\n: " + Driver().get_driver().page_source
+        # print "1st len = %s" % len(a)
+        for i in range(len(a)):
+            # all_text0 = a[i].find_elements_by_class_name('android.widget.TextView')
+            # all_text0 = a[i].find_elements_by_android_uiautomator("new UISelector().className(\"android.widget.TextView\")")
+            __all_text0_1 = a[i].find_elements_by_android_uiautomator("new UiSelector().className(\"android.widget.TextView\")")
+            # print all_text0
+            print len(__all_text0_1)
+            # _all = []
+            for t in __all_text0_1:
+                # _all.append(t.text)
+                print t.text.encode('utf-8')
+
 
 
 
